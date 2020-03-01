@@ -70,8 +70,8 @@ colonia test_read_csv(const string &file_path)
     while (not in.eof())
     {
         string cognom1, nom;
-        getline(in, nom, ';');
-        getline(in, cognom1, ';');
+        getline(in, nom, ',');
+        getline(in, cognom1);
 
         // cout << nom + " " + cognom1 + " " + cognom2 << endl;
 
@@ -102,7 +102,7 @@ llista read_serveis(const string &file_path, map<string, int> &cap)
     llista res;
     ifstream in(file_path);
     string temp;
-    while (getline(in, temp) and temp != "n")
+    while (getline(in, temp) and temp != "end")
         res.push_back(temp);
     for (int i = 0; i < (int)res.size(); ++i)
         in >> cap[res[i]];

@@ -1,4 +1,4 @@
-CXXFLAGS = -Wall -std=c++11 -O3 -D_GLIBCXX_DEBUG
+CXXFLAGS = -Wall -std=c++17 -O3 -D_GLIBCXX_DEBUG
 
 all: main.exe
 
