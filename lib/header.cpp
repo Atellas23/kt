@@ -23,9 +23,9 @@ colonia read_gent(const string &file_path)
         in >> type;
         char aux;
         in >> aux;
-        getline(in, cognom1, ';');
-        getline(in, cognom2, ';');
-        getline(in, nom, ';');
+        getline(in, cognom1, ',');
+        getline(in, cognom2, ',');
+        getline(in, nom);
 
         // cout << nom + " " + cognom1 + " " + cognom2 << endl;
 
