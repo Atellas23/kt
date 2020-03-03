@@ -85,6 +85,6 @@ int main(int argc, char **argv)
     table no_volia_utilitzar_tanta_memoria_pero_buenu = format2(kt, serveis_nens);
     if (md_format(no_volia_utilitzar_tanta_memoria_pero_buenu))
         cout << "success!" << endl;
-    C.print(tots);
+    // C.print(tots);
     // cout << (format(kt, serveis_nens) ? "success!" : "failure...") << endl;
 }
