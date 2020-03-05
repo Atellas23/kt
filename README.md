@@ -24,7 +24,7 @@ Per instal·lar-lo, cal seguir les instruccions [d'aquest link](https://pandoc.o
 
 #### `gcc`
 
-És força important tenir instal·lat també el compilador de C/C++ per excel·lència, `gcc`. Per fer això, cal seguir [aquestes instruccions]().
+És força important tenir instal·lat també el compilador de C/C++ per excel·lència, `gcc`. Per fer això, cal seguir [aquestes instruccions](https://gcc.gnu.org/install/binaries.html).
 
 ### Linux / MacOS
 
