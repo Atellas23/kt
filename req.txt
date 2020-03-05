@@ -1,0 +1,4 @@
+REQUIREMENTS:
+make yes
+gcc yes
+pandoc yes

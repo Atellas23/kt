@@ -5,11 +5,6 @@ ifstream input;
 string blue = "blue";
 string red = "red";
 
-int getid()
-{
-    return total++;
-}
-
 colonia read_gent(const string &file_path)
 {
     ifstream in(file_path);
@@ -29,7 +24,7 @@ colonia read_gent(const string &file_path)
 
         // cout << nom + " " + cognom1 + " " + cognom2 << endl;
 
-        persona temp = {getid(), type, nom + " " + cognom1 + " " + cognom2, false};
+        persona temp = {total++, type, nom + " " + cognom1 + " " + cognom2, false};
 
         temp_gent.push_back(temp);
 
@@ -75,7 +70,7 @@ colonia test_read_csv(const string &file_path)
 
         // cout << nom + " " + cognom1 + " " + cognom2 << endl;
 
-        persona temp = {getid(), true, nom + " " + cognom1, false};
+        persona temp = {total++, true, nom + " " + cognom1, false};
 
         temp_gent.push_back(temp);
 
@@ -158,7 +153,6 @@ table format2(const vector<day> &c, const llista &serveis)
 {
     string nl = "<br />";
     string rcolor = "</span>";
-    string folder = "./tables/";
     table res;
     for (int i = 0; i < 10; ++i)
     {
@@ -211,4 +205,11 @@ bool md_format(table &t)
     }
     out.close();
     return true;
+}
+
+double soroll()
+{
+    default_random_engine gen;
+    normal_distribution<double> d(0.0, 0.5);
+    return d(gen);
 }

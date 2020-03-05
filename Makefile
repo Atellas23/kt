@@ -1,23 +1,21 @@
 CXXFLAGS = -Wall -std=c++17 -O3 -D_GLIBCXX_DEBUG
 
-all: run_test convert
-
-run_test: reset
-	./main.exe test2.csv serveis.dat
-	@make clean_bin
-
-clean_bin:
-	rm -f main.exe *.o ./lib/*.o
-
-clean: clean_bin
-	rm -f result.md Serveis.html
-
-main.exe: main.o lib/header.o
+all: clean Serveis.exe run_test convert
+setup.exe: src/setup.cc
 	$(CXX) $^ -o $@
 
-reset: clean main.exe
+run_test:
+	./Serveis.exe d
+
+clean:
+	rm -f Serveis.exe ./src/*.o ./lib/*.o result.md Serveis.html
+
+Serveis.exe: src/main.o lib/header.o
+	$(CXX) $^ -o $@
+
+reset: clean Serveis.exe
 convert: result.md
 	pandoc result.md -o Serveis.html
 
-main.o: main.cpp lib/header.hh
+main.o: src/main.cpp lib/header.hh
 lib/header.o: lib/header.cpp lib/header.hh

@@ -26,16 +26,17 @@ struct persona
     string nom;
     bool working_today;
 };
+using grup = vector<persona>;
 
 struct servei
 {
-    vector<persona> persones;
+    grup persones;
     string nom;
 };
 
 struct colonia
 {
-    vector<persona> gent;
+    grup gent;
     int n_monitors;
     int n_nens;
     void print(option a);
@@ -48,15 +49,14 @@ struct table
 };
 
 using day = vector<servei>;
-using grup = vector<persona>;
 
 colonia read_gent(const string &file_path);
 llista read_serveis(const string &file_path, map<string, int> &cap);
 colonia test_read_csv(const string &file_path);
 bool format(const vector<day> &c, const llista &serveis);
-string lcolor(string &col);
 void has_done_init(map<int, map<string, bool>> &m, int n_nens, llista &serveis);
 table format2(const vector<day> &c, const llista &serveis);
 bool md_format(table &t);
+double soroll();
 
 #endif // !1 HDR_H
