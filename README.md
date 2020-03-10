@@ -45,7 +45,7 @@ Aquí explicaré com fer funcionar el programa pel públic general.
 
 **Pas 2:** Fer doble clic a l'arxiu `setup.exe`. Això comprova que s'hagin instal·lat els pre-requisits, i després  compila el programa. També comprova que funcioni tot amb un llistat de nens per defecte.
 
-**Pas 3:** Posar a la carpeta `data` l'arxiu `.csv` amb la llista de nens i **anomenar-lo `nens.csv`**, i l'arxiu amb la llista de serveis `serveis.dat`. Aquest últim ha de tenir un format concret, consulteu l'apartat de paràmetres d'entrada.
+**Pas 3:** Posar a la carpeta `data` l'arxiu `.csv` amb la llista de nens i **anomenar-lo `nens.csv`**, i l'arxiu amb la llista de serveis **`serveis.dat`**. Aquest últim ha de tenir un format concret, consulteu l'apartat de paràmetres d'entrada.
 
 ## Paràmetres d'entrada
 
@@ -62,8 +62,19 @@ cognom1,cognom2,nom
 
 en un arxiu de text que es pot editar amb qualsevol editor.
 
-- **Llista de serveis:** la llista de serveis ha de ser
-
+- **Llista de serveis:** la llista de serveis ha de ser un arxiu en format `.dat` amb el format següent:
+```.dat
+nom_1
+nom_2
+...
+nom_n
+end
+m_1
+m_2
+...
+m_n
+```
+on cada `m_i` és el nombre de nens que han d'anar al servei `nom_i`.
 ### Paràmetres per defecte
 
 ## Format de sortida
@@ -72,11 +83,8 @@ en un arxiu de text que es pot editar amb qualsevol editor.
 
 ### Restriccions
 
-#### Càlcul del hard-limit numèric
-$80$.
-```shell
-pandoc result.md -o Serveis.html
-```
+#### Càlcul del limit numèric
+A partir de prova i error, el nombre de nens mínim per la configuració per defecte dels serveis és 80.
 
 ## Suggerències
 
