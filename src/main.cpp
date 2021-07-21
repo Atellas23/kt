@@ -20,7 +20,7 @@ int main(int argc, char **argv)
         else
         {
             cout << "Ei, error!\n";
-            cout << "La sintaxi es " + string(argv[0]) + " data.csv\n serveis.csv";
+            cout << "La sintaxi es " + string(argv[0]) + " data.csv serveis.csv";
             exit(0);
         }
     }
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
     else
         C = read_gent(nensDB);
     // vector<llista> left;
-    vector<bool> served_yesterday(C.gent.size(), false);
+    // vector<bool> served_yesterday(C.gent.size(), false);
     // xivato;
 
     /*
