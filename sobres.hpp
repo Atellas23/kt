@@ -2,63 +2,90 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <memory>
 #include <vector>
 using namespace std;
 
 int NUM_LOCALITZACIONS = 17;
 int NUM_EQUIPS = 9;
 
-struct Response {
-    vector<string> llocs;
-    vector<vector<string>> circuits;
-    map<pair<int, string>, string> llocIncorrecte;
+struct Tree {
+    string name;
+    Tree *correct;
+    Tree *incorrect;
+    Tree() : correct(nullptr), incorrect(nullptr), name("leaf_subtree") {}
+
+    void insert_correct(string correcte) {
+        if (correct == nullptr) {
+            correct = new Tree;
+            correct->set_name(correcte);
+        } else
+            correct->insert_correct(correcte);
+    }
+
+    void insert_incorrect(string incorrecte) {
+        if (incorrect == nullptr) {
+            incorrect = new Tree;
+            incorrect->set_name(incorrecte);
+        } else
+            correct->insert_incorrect(incorrecte);
+    }
+    void set_name(string new_name) { name = new_name; }
 };
 
-Response paths(string file = "") {
-    // llegeixo noms de les localitzacions
-    vector<string> places;
-#ifdef _TEST
-    for (int i = 0; i < NUM_LOCALITZACIONS; ++i) places.push_back("lloc" + to_string(i + 1));
-#endif
-#ifndef _TEST
-    if (file.length() == 0) {
-        cerr << "filename is empty!" << endl;
-        return Response({});
-    }
-    ifstream input;
-    input.open(file);
-    if (not input.good()) {
-        cerr << "file is not good!" << endl;
-        return Response({});
-    }
-    string place;
-    while (input >> place) places.push_back(place);
-    NUM_LOCALITZACIONS = places.size();
-#endif
-    random_shuffle(places.begin(), places.end());
-    vector<vector<string>> circuit_correcte(NUM_EQUIPS);
-    map<pair<int, string>, string> incorrecte;
-    cout << "pre-for" << endl;
-    for (int equip = 0; equip < NUM_EQUIPS; ++equip) {
-        cout << "podre entrar una string en un vector<string>?" << endl;
-        circuit_correcte[equip].push_back(places[equip]);  // localització inicial
-        cout << "SI" << endl;
-        for (int seguent = 1; seguent < NUM_EQUIPS; ++seguent) {
-            incorrecte[{equip, circuit_correcte[equip].back()}] = places[(equip - seguent) < 0 ? NUM_LOCALITZACIONS + equip - seguent : equip - seguent];
-            circuit_correcte[equip].push_back(places[equip + seguent]);
-        }
-    }
-    cout << "post-for" << endl;
+using circuits = vector<Tree>;
 
-    ofstream output;
-    output.open("circuit.txt");
+void camins(circuits &res, string file = "") {
+    vector<string> llocs;
+    if (file == "") {
+        cerr << "error: el fitxer de localitzacions està buit!" << endl;
+        return;
+    }
+    ifstream input(file);
+    if (not input.good()) {
+        cerr << "error: el fitxer de localitzacions no és accessible." << endl;
+    }
+    string lloc;
+    while (getline(input, lloc)) llocs.push_back(lloc);
+    NUM_LOCALITZACIONS = llocs.size();
+
+    random_shuffle(llocs.begin(), llocs.end());
+
+    res = circuits(NUM_EQUIPS);
+
     for (int equip = 0; equip < NUM_EQUIPS; ++equip) {
-        output << "EQUIP #" << equip + 1 << endl;
-        for (int lloc = 0; lloc < (int)circuit_correcte[equip].size(); ++lloc) {
-            output << "Localització correcta #" << lloc + 1 << ": " << circuit_correcte[equip][lloc] << endl;
-            output << "\tSi s'equivoquen, van a la localització " << incorrecte[{equip, circuit_correcte[equip][lloc]}] << endl;
+        res[equip].set_name(llocs[equip]);
+        for (int seguent = 1; seguent < NUM_EQUIPS; ++seguent) {
+            res[equip].insert_correct(llocs[(equip + seguent) < NUM_LOCALITZACIONS ? equip + seguent : equip + seguent - NUM_LOCALITZACIONS]);
+            res[equip].insert_incorrect(llocs[(equip - seguent) < 0 ? NUM_LOCALITZACIONS + equip - seguent : equip - seguent]);
         }
-        output << string(10, '-') << endl
+    }
+}
+
+void treeDriver() {
+    cout << "Quants equips jugaran al joc de sobres? ";
+    cin >> NUM_EQUIPS;
+    string filename;
+    cout << "Escriu el nom del fitxer de localitzacions: ";
+    cin >> filename;
+    vector<Tree> res(NUM_EQUIPS, Tree());
+    camins(res, filename);
+    ofstream output;
+    output.open("circuits.txt");
+    for (int equip = 0; equip < NUM_EQUIPS; ++equip) {
+        // res[equip];
+        output << "EQUIP #" << equip + 1 << ": comença a " << res[equip].name << endl;
+        Tree *placeHolder = &res[equip];
+        while (placeHolder->correct != nullptr) {
+            output << "**L'equip està a la localització " << placeHolder->name << endl;
+            output << "\t- Si encerten la pregunta, van a " << placeHolder->correct->name << endl;
+            output << "\t- Si la fallen, van a " << placeHolder->incorrect->name << endl;
+            placeHolder = placeHolder->correct;
+            output << endl;
+        }
+        output << "La localització final de l'equip " << equip + 1 << " és " << placeHolder->name << endl;
+        output << string(20, '-') << endl
                << endl;
+        delete placeHolder;
     }
 }

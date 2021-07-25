@@ -1,0 +1,324 @@
+EQUIP #1: comença a entrada habitacions munis
+**L'equip està a la localització entrada habitacions munis
+	- Si encerten la pregunta, van a aixeta de baix
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització aixeta de baix
+	- Si encerten la pregunta, van a camp de futbol gran
+	- Si la fallen, van a cuina
+
+**L'equip està a la localització camp de futbol gran
+	- Si encerten la pregunta, van a sala de munis
+	- Si la fallen, van a bosc
+
+**L'equip està a la localització sala de munis
+	- Si encerten la pregunta, van a cistelles basquet
+	- Si la fallen, van a dutxes
+
+**L'equip està a la localització cistelles basquet
+	- Si encerten la pregunta, van a porxo habitacions nens
+	- Si la fallen, van a camp de futbol piscina
+
+**L'equip està a la localització porxo habitacions nens
+	- Si encerten la pregunta, van a entrada menjador
+	- Si la fallen, van a aixeta de dalt
+
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a porxo cançons
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a hospital KT
+
+La localització final de l'equip 1 és piscina
+--------------------
+
+EQUIP #2: comença a aixeta de baix
+**L'equip està a la localització aixeta de baix
+	- Si encerten la pregunta, van a camp de futbol gran
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització camp de futbol gran
+	- Si encerten la pregunta, van a sala de munis
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització sala de munis
+	- Si encerten la pregunta, van a cistelles basquet
+	- Si la fallen, van a cuina
+
+**L'equip està a la localització cistelles basquet
+	- Si encerten la pregunta, van a porxo habitacions nens
+	- Si la fallen, van a bosc
+
+**L'equip està a la localització porxo habitacions nens
+	- Si encerten la pregunta, van a entrada menjador
+	- Si la fallen, van a dutxes
+
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a camp de futbol piscina
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a aixeta de dalt
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a porxo cançons
+
+La localització final de l'equip 2 és hospital KT
+--------------------
+
+EQUIP #3: comença a camp de futbol gran
+**L'equip està a la localització camp de futbol gran
+	- Si encerten la pregunta, van a sala de munis
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització sala de munis
+	- Si encerten la pregunta, van a cistelles basquet
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització cistelles basquet
+	- Si encerten la pregunta, van a porxo habitacions nens
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització porxo habitacions nens
+	- Si encerten la pregunta, van a entrada menjador
+	- Si la fallen, van a cuina
+
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a bosc
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a dutxes
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a camp de futbol piscina
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a aixeta de dalt
+
+La localització final de l'equip 3 és porxo cançons
+--------------------
+
+EQUIP #4: comença a sala de munis
+**L'equip està a la localització sala de munis
+	- Si encerten la pregunta, van a cistelles basquet
+	- Si la fallen, van a camp de futbol gran
+
+**L'equip està a la localització cistelles basquet
+	- Si encerten la pregunta, van a porxo habitacions nens
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització porxo habitacions nens
+	- Si encerten la pregunta, van a entrada menjador
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a cuina
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a bosc
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a dutxes
+
+**L'equip està a la localització porxo cançons
+	- Si encerten la pregunta, van a aixeta de dalt
+	- Si la fallen, van a camp de futbol piscina
+
+La localització final de l'equip 4 és aixeta de dalt
+--------------------
+
+EQUIP #5: comença a cistelles basquet
+**L'equip està a la localització cistelles basquet
+	- Si encerten la pregunta, van a porxo habitacions nens
+	- Si la fallen, van a sala de munis
+
+**L'equip està a la localització porxo habitacions nens
+	- Si encerten la pregunta, van a entrada menjador
+	- Si la fallen, van a camp de futbol gran
+
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a cuina
+
+**L'equip està a la localització porxo cançons
+	- Si encerten la pregunta, van a aixeta de dalt
+	- Si la fallen, van a bosc
+
+**L'equip està a la localització aixeta de dalt
+	- Si encerten la pregunta, van a camp de futbol piscina
+	- Si la fallen, van a dutxes
+
+La localització final de l'equip 5 és camp de futbol piscina
+--------------------
+
+EQUIP #6: comença a porxo habitacions nens
+**L'equip està a la localització porxo habitacions nens
+	- Si encerten la pregunta, van a entrada menjador
+	- Si la fallen, van a cistelles basquet
+
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a sala de munis
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a camp de futbol gran
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització porxo cançons
+	- Si encerten la pregunta, van a aixeta de dalt
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització aixeta de dalt
+	- Si encerten la pregunta, van a camp de futbol piscina
+	- Si la fallen, van a cuina
+
+**L'equip està a la localització camp de futbol piscina
+	- Si encerten la pregunta, van a dutxes
+	- Si la fallen, van a bosc
+
+La localització final de l'equip 6 és dutxes
+--------------------
+
+EQUIP #7: comença a entrada menjador
+**L'equip està a la localització entrada menjador
+	- Si encerten la pregunta, van a taula de fils
+	- Si la fallen, van a porxo habitacions nens
+
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a cistelles basquet
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a sala de munis
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a camp de futbol gran
+
+**L'equip està a la localització porxo cançons
+	- Si encerten la pregunta, van a aixeta de dalt
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització aixeta de dalt
+	- Si encerten la pregunta, van a camp de futbol piscina
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització camp de futbol piscina
+	- Si encerten la pregunta, van a dutxes
+	- Si la fallen, van a entrada habitacions nens
+
+**L'equip està a la localització dutxes
+	- Si encerten la pregunta, van a bosc
+	- Si la fallen, van a cuina
+
+La localització final de l'equip 7 és bosc
+--------------------
+
+EQUIP #8: comença a taula de fils
+**L'equip està a la localització taula de fils
+	- Si encerten la pregunta, van a piscina
+	- Si la fallen, van a entrada menjador
+
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a porxo habitacions nens
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a cistelles basquet
+
+**L'equip està a la localització porxo cançons
+	- Si encerten la pregunta, van a aixeta de dalt
+	- Si la fallen, van a sala de munis
+
+**L'equip està a la localització aixeta de dalt
+	- Si encerten la pregunta, van a camp de futbol piscina
+	- Si la fallen, van a camp de futbol gran
+
+**L'equip està a la localització camp de futbol piscina
+	- Si encerten la pregunta, van a dutxes
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització dutxes
+	- Si encerten la pregunta, van a bosc
+	- Si la fallen, van a entrada habitacions munis
+
+**L'equip està a la localització bosc
+	- Si encerten la pregunta, van a cuina
+	- Si la fallen, van a entrada habitacions nens
+
+La localització final de l'equip 8 és cuina
+--------------------
+
+EQUIP #9: comença a piscina
+**L'equip està a la localització piscina
+	- Si encerten la pregunta, van a hospital KT
+	- Si la fallen, van a taula de fils
+
+**L'equip està a la localització hospital KT
+	- Si encerten la pregunta, van a porxo cançons
+	- Si la fallen, van a entrada menjador
+
+**L'equip està a la localització porxo cançons
+	- Si encerten la pregunta, van a aixeta de dalt
+	- Si la fallen, van a porxo habitacions nens
+
+**L'equip està a la localització aixeta de dalt
+	- Si encerten la pregunta, van a camp de futbol piscina
+	- Si la fallen, van a cistelles basquet
+
+**L'equip està a la localització camp de futbol piscina
+	- Si encerten la pregunta, van a dutxes
+	- Si la fallen, van a sala de munis
+
+**L'equip està a la localització dutxes
+	- Si encerten la pregunta, van a bosc
+	- Si la fallen, van a camp de futbol gran
+
+**L'equip està a la localització bosc
+	- Si encerten la pregunta, van a cuina
+	- Si la fallen, van a aixeta de baix
+
+**L'equip està a la localització cuina
+	- Si encerten la pregunta, van a entrada habitacions nens
+	- Si la fallen, van a entrada habitacions munis
+
+La localització final de l'equip 9 és entrada habitacions nens
+--------------------
+
