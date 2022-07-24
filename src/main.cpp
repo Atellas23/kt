@@ -32,10 +32,12 @@ int main(int argc, char **argv)
     }
     // colonia C = read_csv(argv[1]);
     colonia C = {{}, 0, 0};
+    xivato
     if (defaults)
         C = test_read_csv(nensDB);
     else
         C = read_gent(nensDB);
+    cout << "gent llegida" << endl;
     // vector<llista> left;
     // vector<bool> served_yesterday(C.gent.size(), false);
     // xivato;
@@ -55,6 +57,7 @@ int main(int argc, char **argv)
 
     map<string, int> cap;
     llista serveis_nens = read_serveis(serveisDB, cap);
+    cout << "serveis llegits" << endl;
 
     vector<day> kt;
     grup &working_class = C.gent;
@@ -65,9 +68,12 @@ int main(int argc, char **argv)
     default_random_engine gen;
     for (int dia = 0; dia < 10; ++dia)
     {
+        cout << "Fent el dia " << dia << endl;
         day d;
         for (auto &s : serveis_nens)
         {
+            if ((s[0] <= '9' and s[0] >= '0') or s == "end") continue;
+            cout << "Fent el servei " << s << endl;
             grup temp;
             discrete_distribution<int> d1(prob.begin(), prob.end()); // triem un xaval random,
                                                                      // amb probabilitat mes

@@ -7,6 +7,7 @@ string red = "red";
 
 colonia read_gent(const string &file_path)
 {
+    cout << "Entry point for read_gent" << endl;
     ifstream in(file_path);
     colonia a;
     int nens = 0, monitors = 0;
@@ -14,17 +15,22 @@ colonia read_gent(const string &file_path)
     while (not in.eof())
     {
         bool type;
-        string cognom1, cognom2, nom;
+        string type_string;
+        // string cognom1, cognom2, nom;
+        string cognom1, nom;
         in >> type;
-        char aux;
-        in >> aux;
-        getline(in, cognom1, ',');
-        getline(in, cognom2, ',');
-        getline(in, nom);
+        // char aux;
+        // in >> aux;
+        getline(in, type_string, ',');
+        type = type_string == "1";
+        getline(in, nom, ',');
+        getline(in, cognom1);
+        // getline(in, cognom2, ',');
 
         // cout << nom + " " + cognom1 + " " + cognom2 << endl;
 
-        persona temp = {total++, type, nom + " " + cognom1 + " " + cognom2, false};
+        // persona temp = {total++, type, nom + " " + cognom1 + " " + cognom2, false};
+        persona temp = {total++, type, nom + " " + cognom1, false};
 
         temp_gent.push_back(temp);
 
@@ -64,7 +70,7 @@ colonia test_read_csv(const string &file_path)
     grup temp_gent;
     while (not in.eof())
     {
-        string cognom1, nom;
+        string cognom1 = " ", nom;
         getline(in, nom, ',');
         getline(in, cognom1);
 

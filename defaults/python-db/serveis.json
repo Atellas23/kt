@@ -1,0 +1,66 @@
+{
+    "nens": {
+        "Parar i desparar taula": {
+            "persones": 4,
+            "nivell": 2
+        },
+        "Plats i peroles": {
+            "persones": 2,
+            "nivell": 2
+        },
+        "Lavabos": {
+            "persones": 6,
+            "nivell": 3
+        },
+        "Pregària": {
+            "persones": 4,
+            "nivell": 1
+        },
+        "Interior": {
+            "persones": 6,
+            "nivell": 1
+        },
+        "Exterior": {
+            "persones": 4,
+            "nivell": 1
+        }
+    },
+    "monitors": {
+        "Parar i desparar taula": {
+            "persones": 2,
+            "nivell": 2
+        },
+        "Plats i peroles": {
+            "persones": 1,
+            "nivell": 2
+        },
+        "Lavabos": {
+            "persones": 2,
+            "nivell": 3
+        },
+        "Dutxes": {
+            "persones": 3,
+            "nivell": 1
+        },
+        "Pregària & Imaginària": {
+            "persones": 2,
+            "nivell": 2
+        },
+        "Interior": {
+            "persones": 2,
+            "nivell": 1
+        },
+        "Exterior": {
+            "persones": 1,
+            "nivell": 1
+        },
+        "Berenar & Material": {
+            "persones": 2,
+            "nivell": 1
+        },
+        "Pànxing & Piscina": {
+            "persones": 3,
+            "nivell": 1
+        }
+    }
+}
