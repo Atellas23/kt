@@ -187,29 +187,31 @@ data_nens = pd.DataFrame(serveis_assignment_nens)
 data_nens.index += 1
 data_nens.index.name = 'Dia'
 
+data_monitors.to_excel('serveis_munis.xlsx')
+data_nens.to_excel('serveis_nens.xlsx')
 
-def pdtabulate(df):
-    # return tabulate(df, headers='keys', tablefmt='fancy_grid')
-    return tabulate(df, headers='keys', tablefmt='html')
-
-
-with open('serveis_monitors.html', 'w') as out:
-    print(pdtabulate(data_monitors), file=out)
-
-with open('serveis_nens.html', 'w') as out:
-    print(pdtabulate(data_nens), file=out)
+# def pdtabulate(df):
+#     # return tabulate(df, headers='keys', tablefmt='fancy_grid')
+#     return tabulate(df, headers='keys', tablefmt='html')
 
 
-def set_border(path):
-    with open(path, 'r') as inp:
-        soup = bs(inp, 'html.parser')
-    table_tag = soup.find('table')
-    table_tag.attrs['border'] = '1'
-    with open(path, 'wb') as out:
-        out.write(soup.prettify('utf-8'))
+# with open('serveis_monitors.html', 'w') as out:
+#     print(pdtabulate(data_monitors), file=out)
 
-    return None
+# with open('serveis_nens.html', 'w') as out:
+#     print(pdtabulate(data_nens), file=out)
 
 
-for t in ('nens', 'monitors'):
-    set_border(f'serveis_{t}.html')
+# def set_border(path):
+#     with open(path, 'r') as inp:
+#         soup = bs(inp, 'html.parser')
+#     table_tag = soup.find('table')
+#     table_tag.attrs['border'] = '1'
+#     with open(path, 'wb') as out:
+#         out.write(soup.prettify('utf-8'))
+
+#     return None
+
+
+# for t in ('nens', 'monitors'):
+#     set_border(f'serveis_{t}.html')
