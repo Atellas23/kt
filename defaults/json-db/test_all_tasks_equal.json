@@ -2,15 +2,19 @@
     "nens": {
         "Parar i desparar taula": {
             "persones": 4,
-            "nivell": 2
+            "nivell": 1
         },
-        "Plats i peroles": {
+        "Peroles": {
             "persones": 2,
-            "nivell": 2
+            "nivell": 1
+        },
+        "Plats": {
+            "persones": 4,
+            "nivell": 1
         },
         "Lavabos": {
             "persones": 6,
-            "nivell": 3
+            "nivell": 1
         },
         "Pregària": {
             "persones": 4,
@@ -28,15 +32,19 @@
     "monitors": {
         "Parar i desparar taula": {
             "persones": 2,
-            "nivell": 2
+            "nivell": 1
         },
-        "Plats i peroles": {
+        "Peroles": {
             "persones": 1,
-            "nivell": 2
+            "nivell": 1
+        },
+        "Plats": {
+            "persones": 1,
+            "nivell": 1
         },
         "Lavabos": {
             "persones": 2,
-            "nivell": 3
+            "nivell": 1
         },
         "Dutxes": {
             "persones": 3,
@@ -44,7 +52,7 @@
         },
         "Pregària & Imaginària": {
             "persones": 2,
-            "nivell": 2
+            "nivell": 1
         },
         "Interior": {
             "persones": 2,

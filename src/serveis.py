@@ -1,15 +1,19 @@
+#!/home/alex/venvs/kt/bin/python
 from bs4 import BeautifulSoup as bs
+import numpy as np
 from tabulate import tabulate
 import pandas as pd
 from heapq import heapify
 import json
 from functools import total_ordering
-from random import shuffle
+from random import shuffle, random
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-with open('../defaults/python-db/colonia.json', 'r') as file:
+with open('../defaults/json-db/colonia-kt22.json', 'r') as file:
     colonia = json.load(file)
 
-with open('../defaults/python-db/serveis_roc.json', 'r') as file:
+with open('../defaults/json-db/test_all_tasks_equal.json', 'r') as file:
     serveis = json.load(file)
 
 
@@ -20,10 +24,12 @@ class Nen(object):
         self.name = name
         self.id = id
         self.last_task_done = None
+        self.task_dict = dict()
 
     def __lt__(self, other) -> bool:
         if self.points == other.points:
-            return self.name < other.name
+            # return self.name < other.name
+            return random() > 0.5
         return self.points < other.points
 
     def __eq__(self, other) -> bool:
@@ -31,6 +37,17 @@ class Nen(object):
 
     def __repr__(self):
         return f'{{\"name\": \"{self.name}\", \"points\": {self.points}}}'
+
+    def task_is_done(self, task_name: str) -> bool:
+        if task_name in self.task_dict:
+            return self.task_dict[task_name] > 0
+        return False
+
+    def set_task_done(self, task_name: str) -> None:
+        if task_name in self.task_dict:
+            self.task_dict[task_name] += 1
+        else:
+            self.task_dict[task_name] = 1
 
 
 @total_ordering
@@ -40,10 +57,12 @@ class Monitor(object):
         self.name = name
         self.id = id
         self.last_task_done = None
+        self.task_dict = dict()
 
     def __lt__(self, other) -> bool:
         if self.points == other.points:
-            return self.name < other.name
+            # return self.name < other.name
+            return random() > 0.5
         return self.points < other.points
 
     def __eq__(self, other) -> bool:
@@ -51,6 +70,17 @@ class Monitor(object):
 
     def __repr__(self):
         return f'{{\"name\": \"{self.name}\", \"points\": {self.points}}}'
+
+    def task_is_done(self, task_name: str) -> bool:
+        if task_name in self.task_dict:
+            return self.task_dict[task_name] > 0
+        return False
+
+    def set_task_done(self, task_name: str) -> None:
+        if task_name in self.task_dict:
+            self.task_dict[task_name] += 1
+        else:
+            self.task_dict[task_name] = 1
 
 
 class Heap(object):
@@ -101,7 +131,7 @@ serveis_assignment_monitors = [
 
 for day in range(10):
     worked_today_nens = [False for _ in nens_list]
-    worked_today_monitors = [False for _ in nens_list]
+    worked_today_monitors = [False for _ in monitors_list]
     print(f'Building day {day+1}...')
     # Primer repartim els serveis dels nens
     # ho farem de forma aleatòria
@@ -124,8 +154,14 @@ for day in range(10):
             if next_nen.last_task_done == servei and nens_heap.size() > 0:
                 push_after_servei.members.append(next_nen)
                 continue
+            if next_nen.task_is_done(servei) and nens_heap.size() > 0:
+                # the kid has already done the task and there are kids to be potentially
+                # assigned to this task, just push them afterwards
+                push_after_servei.members.append(next_nen)
+                continue
             worked_today_nens[next_nen.id] = True
             next_nen.last_task_done = servei
+            next_nen.set_task_done(servei)
             next_nen.points += serveis['nens'][servei]['nivell']
             servei_per_aquest_dia.append(next_nen.name)
             nens_heap.push(next_nen)
@@ -152,8 +188,14 @@ for day in range(10):
             if next_monitor.last_task_done == servei and monitors_heap.size() > 0:
                 push_after_servei.members.append(next_monitor)
                 continue
+            if next_monitor.task_is_done(servei) and monitors_heap.size() > 0:
+                # the kid has already done the task and there are kids to be potentially
+                # assigned to this task, just push them afterwards
+                push_after_servei.members.append(next_monitor)
+                continue
             worked_today_monitors[next_monitor.id] = True
             next_monitor.last_task_done = servei
+            next_monitor.set_task_done(servei)
             next_monitor.points += serveis['monitors'][servei]['nivell']
             servei_per_aquest_dia.append(next_monitor.name)
             monitors_heap.push(next_monitor)
@@ -187,31 +229,60 @@ data_nens = pd.DataFrame(serveis_assignment_nens)
 data_nens.index += 1
 data_nens.index.name = 'Dia'
 
-data_monitors.to_excel('serveis_munis.xlsx')
-data_nens.to_excel('serveis_nens.xlsx')
-
-# def pdtabulate(df):
-#     # return tabulate(df, headers='keys', tablefmt='fancy_grid')
-#     return tabulate(df, headers='keys', tablefmt='html')
+data_monitors.to_excel('../results/serveis_monitors.xlsx')
+data_nens.to_excel('../results/serveis_nens.xlsx')
 
 
-# with open('serveis_monitors.html', 'w') as out:
-#     print(pdtabulate(data_monitors), file=out)
-
-# with open('serveis_nens.html', 'w') as out:
-#     print(pdtabulate(data_nens), file=out)
+def pdtabulate(df):
+    # return tabulate(df, headers='keys', tablefmt='fancy_grid')
+    return tabulate(df, headers='keys', tablefmt='html')
 
 
-# def set_border(path):
-#     with open(path, 'r') as inp:
-#         soup = bs(inp, 'html.parser')
-#     table_tag = soup.find('table')
-#     table_tag.attrs['border'] = '1'
-#     with open(path, 'wb') as out:
-#         out.write(soup.prettify('utf-8'))
+with open('../results/serveis_monitors.html', 'w') as out:
+    print(pdtabulate(data_monitors), file=out)
 
-#     return None
+with open('../results/serveis_nens.html', 'w') as out:
+    print(pdtabulate(data_nens), file=out)
 
 
-# for t in ('nens', 'monitors'):
-#     set_border(f'serveis_{t}.html')
+def set_border(path):
+    with open(path, 'r') as inp:
+        soup = bs(inp, 'html.parser')
+    table_tag = soup.find('table')
+    table_tag.attrs['border'] = '1'
+    with open(path, 'wb') as out:
+        out.write(soup.prettify('utf-8'))
+
+    return None
+
+
+for t in ('nens', 'monitors'):
+    set_border(f'../results/serveis_{t}.html')
+
+
+# print fairness heatmap
+M, N = len(monitors_list), len(nens_list)
+num_tasks_monitors = len(noms_serveis_monitors)
+num_tasks_nens = len(noms_serveis_nens)
+
+monitors_heatmap = np.zeros((M, num_tasks_monitors), dtype=int)
+nens_heatmap = np.zeros((N, num_tasks_nens), dtype=int)
+
+monitors_pair_list = []
+
+while monitors_heap.size() > 0:
+    monitor = monitors_heap.pop()
+    for task in noms_serveis_monitors:
+        if task in monitor.task_dict:
+            monitors_pair_list.append(
+                ((monitor.name, task), monitor.task_dict[task]))
+
+
+ser = pd.Series(map(lambda x: x[1], monitors_pair_list),
+                index=pd.MultiIndex.from_tuples(map(lambda x: x[0], monitors_pair_list)))
+df = ser.unstack().fillna(0)
+# df.shape
+# print(df)
+
+sns.heatmap(df)
+plt.savefig('hola.png')

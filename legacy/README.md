@@ -1,14 +1,18 @@
-# Programa de repartiment de serveis
+# CODE HERE IS NOT MEANT TO BE USED
+
+El codi d'aquesta carpeta està bastant dead i no cal intentar de fer-lo servir. T'emburataràs les mans de fer debugging i, si no tens temps, no val la pena :)
+
+## Programa de repartiment de serveis
 
 Aquest programa genera, donada una llista de nens i serveis, un repartiment dels serveis de colònies durant els 10 dies.
 
-## Pre-requisits
+### Pre-requisits
 
-### Windows
+#### Windows
 
 Caldria tenir instal·lats `make`, `pandoc` i `gcc`, tres utilitats <u>**imprescindibles**</u> per poder fer anar el programa.
 
-#### `make`
+##### `make`
 
 Si es té [Chocolatey](https://chocolatey.org/install) instal·lat, la instal·lació es redueix a executar en una terminal la següent instrucció:
 
@@ -18,15 +22,15 @@ choco install make
 
 Si no es té instal·lat, cal seguir [aquestes instruccions](http://gnuwin32.sourceforge.net/packages/make.htm).
 
-#### `pandoc`
+##### `pandoc`
 
 Per instal·lar-lo, cal seguir les instruccions [d'aquest link](https://pandoc.org/installing.html).
 
-#### `gcc`
+##### `gcc`
 
 És força important tenir instal·lat també el compilador de C/C++ per excel·lència, `gcc`. Per fer això, cal seguir [aquestes instruccions](https://gcc.gnu.org/install/binaries.html).
 
-### Linux / MacOS
+#### Linux / MacOS
 
 Per instal·lar els tres pre-requisits, s'han d'executar les següents instruccions en un terminal:
 
@@ -37,7 +41,7 @@ sudo apt-get install pandoc
 
 Un cop instal·lats els pre-requisits, s'ha de modificar `req.txt` i posar "sí" o "yes" al costat de cadascun.
 
-## Tutorial for dummies
+### Tutorial for dummies
 
 Aquí explicaré com fer funcionar el programa pel públic general.
 
@@ -47,7 +51,7 @@ Aquí explicaré com fer funcionar el programa pel públic general.
 
 **Pas 3:** Posar a la carpeta `data` l'arxiu `.csv` amb la llista de nens i **anomenar-lo `nens.csv`**, i l'arxiu amb la llista de serveis **`serveis.dat`**. Aquest últim ha de tenir un format concret, consulteu l'apartat de paràmetres d'entrada.
 
-## Paràmetres d'entrada
+### Paràmetres d'entrada
 
 - **Llista de nens:** la llista de nens ha de ser un arxiu `.csv`, fàcilment exportable des de MS Excel o Google Sheets. Bàsicament, és un format que separa les cel·les com
 
@@ -75,21 +79,21 @@ m_2
 m_n
 ```
 on cada `m_i` és el nombre de nens que han d'anar al servei `nom_i`.
-### Paràmetres per defecte
+#### Paràmetres per defecte
 
-## Format de sortida
+### Format de sortida
 
-## Explicació del funcionament en profunditat
+### Explicació del funcionament en profunditat
 
-### Restriccions
+#### Restriccions
 
-#### Càlcul del limit numèric
+##### Càlcul del limit numèric
 A partir de prova i error, el nombre de nens mínim per la configuració per defecte dels serveis és 80.
 
-## Suggerències
+### Suggerències
 
-## To-Do / Futures actualitzacions
+### To-Do / Futures actualitzacions
 
-- Fer servir cues i/o piles per decidir més fàcil i rapidament quins nens poden fer feina avui i quins no.
+- Fer servir cues i/o piles per decidir més fàcil i ràpidament quins nens poden fer feina avui i quins no.
 - Establir el hard limit numèric de número de persones per no haver de repetir serveis.
 - Fer la instal·lació més senzilla (remember the drama `linux_macOS_config.sh`)

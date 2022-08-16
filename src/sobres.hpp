@@ -68,10 +68,10 @@ void treeDriver() {
     string filename;
     cout << "Escriu el nom del fitxer de localitzacions: ";
     cin >> filename;
-    vector<Tree> res(NUM_EQUIPS, Tree());
+    circuits res(NUM_EQUIPS, Tree());
     camins(res, filename);
     ofstream output;
-    output.open("circuits.txt");
+    output.open("../defaults/circuits.txt");
     for (int equip = 0; equip < NUM_EQUIPS; ++equip) {
         // res[equip];
         output << "EQUIP #" << equip + 1 << ": comença a " << res[equip].name << endl;
